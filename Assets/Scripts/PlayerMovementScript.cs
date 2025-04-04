@@ -5,6 +5,7 @@ public class PlayerMovementScript : MonoBehaviour
 {
     // Properties
     [SerializeField] private float movementSpeed;
+    [SerializeField] private LayerMask wallLayerMask;
 
     private Vector2 destination;
     private Vector2 currentDirection = Vector2.zero;
@@ -23,9 +24,9 @@ public class PlayerMovementScript : MonoBehaviour
             // Player moves towards destination
             transform.position = Vector2.MoveTowards(transform.position, destination, Time.deltaTime * movementSpeed);
         }
-        else if (currentDirection != Vector2.zero)
+        else if ((currentDirection != Vector2.zero) && (!Physics2D.Raycast(transform.position, currentDirection, 1f, wallLayerMask)))
         {
-            // Set new destination if current direction is not zero
+            // Set new destination if current direction is not zero and does not collide with a wall
             destination += currentDirection;
         }
 
