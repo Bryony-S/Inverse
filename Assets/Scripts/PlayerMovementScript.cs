@@ -9,6 +9,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     private Vector2 destination;
     private Vector2 currentDirection = Vector2.zero;
+    public Direction facing = Direction.None;
 
     #region METHODS
     private void Start()
@@ -24,10 +25,13 @@ public class PlayerMovementScript : MonoBehaviour
             // Player moves towards destination
             transform.position = Vector2.MoveTowards(transform.position, destination, Time.deltaTime * movementSpeed);
         }
-        else if ((currentDirection != Vector2.zero) && (!Physics2D.Raycast(transform.position, currentDirection, 1f, wallLayerMask)))
+        else if (currentDirection != Vector2.zero)
         {
-            // Set new destination if current direction is not zero and does not collide with a wall
-            destination += currentDirection;
+            // Change the direction the player is facing
+            Direction newFacing = DirectionToVector2Converter.ConvertBack(currentDirection);
+            if (facing != newFacing) facing = newFacing;
+            // Set new destination if current direction does not collide with a wall
+            if (!Physics2D.Raycast(transform.position, currentDirection, 1f, wallLayerMask)) destination += currentDirection;
         }
 
     }
