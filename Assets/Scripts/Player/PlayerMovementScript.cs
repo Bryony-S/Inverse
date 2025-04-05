@@ -6,15 +6,16 @@ public class PlayerMovementScript : MonoBehaviour
     // Properties
     [SerializeField] private float movementSpeed;
     [SerializeField] private LayerMask wallLayerMask;
+    [SerializeField] private DirectionVariable playerDirection;
 
     private Vector2 destination;
     private Vector2 currentDirection = Vector2.zero;
-    public Direction facing = Direction.None;
 
     #region METHODS
     private void Start()
     {
         destination = transform.position;
+        playerDirection.value = Direction.None;
     }
 
     private void Update()
@@ -28,8 +29,8 @@ public class PlayerMovementScript : MonoBehaviour
         else if (currentDirection != Vector2.zero)
         {
             // Change the direction the player is facing
-            Direction newFacing = DirectionToVector2Converter.ConvertBack(currentDirection);
-            if (facing != newFacing) facing = newFacing;
+            Direction newPlayerDirection = DirectionToVector2Converter.ConvertBack(currentDirection);
+            if (playerDirection.value != newPlayerDirection) playerDirection.value = newPlayerDirection;
             // Set new destination if current direction does not collide with a wall
             if (!Physics2D.Raycast(transform.position, currentDirection, 1f, wallLayerMask)) destination += currentDirection;
         }

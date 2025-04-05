@@ -224,8 +224,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1402620092}
   - component: {fileID: 1402620091}
-  - component: {fileID: 1402620093}
   - component: {fileID: 1402620094}
+  - component: {fileID: 1402620093}
+  - component: {fileID: 1402620095}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -316,7 +317,7 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  facing: 0
+  playerDirection: {fileID: 11400000, guid: aeca652e028da804f9326fe53f186b25, type: 2}
 --- !u!114 &1402620094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,11 +359,43 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ddeb8f00-c3ff-4913-bd32-fba9e95ea9be
     m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1402620095}
+        m_TargetAssemblyTypeName: PlayerPushScript, Assembly-CSharp
+        m_MethodName: PushObject
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c1193127-1b9e-470d-9bf8-723a7e8a3607
+    m_ActionName: Player/Push Object[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1402620095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402620090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a23147d70cfcb4ea7a497330f3aced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  playerDirection: {fileID: 11400000, guid: aeca652e028da804f9326fe53f186b25, type: 2}
 --- !u!1001 &419671102790374538
 PrefabInstance:
   m_ObjectHideFlags: 0
