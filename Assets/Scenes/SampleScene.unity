@@ -380,7 +380,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1402620096}
         m_TargetAssemblyTypeName: PlayerSwitchWorldScript, Assembly-CSharp
-        m_MethodName: SwitchWorld
+        m_MethodName: Switch
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -427,6 +427,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yinWorldManager: {fileID: 1961392041}
   yangWorldManager: {fileID: 2077001278}
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1001 &1604024045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -449,7 +452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8266708227905417244, guid: ea0af2d0a8ceb1e49b18f0e614c022f2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8266708227905417244, guid: ea0af2d0a8ceb1e49b18f0e614c022f2, type: 3}
       propertyPath: m_LocalPosition.z
