@@ -6,6 +6,7 @@ public class PlayerSwitchWorldScript : MonoBehaviour
     // Properties
     [SerializeField] private GameObject yinWorldManager;
     [SerializeField] private GameObject yangWorldManager;
+    [SerializeField] private GameObject invertColourOverlay;
     [SerializeField] private LayerMask wallLayerMask;
 
     // Methods
@@ -30,5 +31,6 @@ public class PlayerSwitchWorldScript : MonoBehaviour
     {
         yinWorldManager.SetActive(!yinWorldManager.activeSelf);
         yangWorldManager.SetActive(!yangWorldManager.activeSelf);
+        invertColourOverlay.SetActive(!invertColourOverlay.activeSelf);
     }
 }
