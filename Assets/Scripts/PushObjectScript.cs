@@ -8,6 +8,7 @@ public class PushObjectScript : MonoBehaviour
 
     private Vector2 destination;
     private bool isMoving = false;
+    [HideInInspector] public bool isSlotted = false;
 
     #region METHODS
     private void Start()
@@ -32,7 +33,7 @@ public class PushObjectScript : MonoBehaviour
     public void Push(Direction directionToPush)
     {
         // Check object is not already moving
-        if (!isMoving)
+        if (!isMoving && !isSlotted)
         {
             Vector2 newDirection = DirectionToVector2Converter.ConvertTo(directionToPush);
             // If new destination is not blocked by a wall, move towards new destination
