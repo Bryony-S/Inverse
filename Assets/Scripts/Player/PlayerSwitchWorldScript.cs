@@ -4,12 +4,9 @@ using UnityEngine.InputSystem;
 public class PlayerSwitchWorldScript : MonoBehaviour
 {
     // Properties
-    [SerializeField] private GameObject yinWorldManager;
-    [SerializeField] private GameObject yangWorldManager;
-    [SerializeField] private GameObject invertColourOverlay;
     [SerializeField] private LayerMask wallLayerMask;
+    [SerializeField] private GameObject levelManager;
 
-    // Methods
     /// <summary>
     /// Player switches between the yin and yang worlds
     /// </summary>
@@ -18,19 +15,9 @@ public class PlayerSwitchWorldScript : MonoBehaviour
     {
         if (context.performed)
         {
-            SwitchWorlds();
+            levelManager.GetComponent<WinLevelScript>().SwitchWorlds();
             // If player collides with a wall, switch back to original world
-            if (Physics2D.OverlapBox(transform.position, transform.localScale * 0.9f, 0f, wallLayerMask)) SwitchWorlds();
+            if (Physics2D.OverlapBox(transform.position, transform.localScale * 0.9f, 0f, wallLayerMask)) levelManager.GetComponent<WinLevelScript>().SwitchWorlds();
         }
-    }
-
-    /// <summary>
-    /// Switch player between worlds
-    /// </summary>
-    private void SwitchWorlds()
-    {
-        yinWorldManager.SetActive(!yinWorldManager.activeSelf);
-        yangWorldManager.SetActive(!yangWorldManager.activeSelf);
-        invertColourOverlay.SetActive(!invertColourOverlay.activeSelf);
     }
 }

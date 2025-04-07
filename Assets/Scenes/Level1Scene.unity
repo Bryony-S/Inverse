@@ -1633,12 +1633,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa1288c54060e040a8e4d9a17fae97d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yinWorldManager: {fileID: 1961392041}
-  yangWorldManager: {fileID: 2077001278}
-  invertColourOverlay: {fileID: 649971008}
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  levelManager: {fileID: 1949459280}
 --- !u!114 &1402620097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2194,6 +2192,14 @@ MonoBehaviour:
   - {fileID: 827334512}
   - {fileID: 1549721911}
   - {fileID: 1711232135}
+  player: {fileID: 1402620090}
+  yinWorldManager: {fileID: 1961392041}
+  yangWorldManager: {fileID: 2077001278}
+  invertColourOverlay: {fileID: 649971008}
+  initialFlickerSpeed: 1
+  flickerSpeedIncrease: 0.2
+  minFlickerSpeed: 0.3
+  winAnimationRunTime: 4.5
 --- !u!1 &1961392041 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8933643499296455254, guid: 041335468075b1845966110ffd729ff4, type: 3}
