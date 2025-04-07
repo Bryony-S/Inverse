@@ -19,6 +19,7 @@ public class WinLevelScript : MonoBehaviour
     private bool isWinAnimationRunning = false;
     private float timer = 0f;
     private float timerRate;
+    private bool playerHasWon = false;
     #endregion
 
     #region METHODS
@@ -49,32 +50,44 @@ public class WinLevelScript : MonoBehaviour
     /// </summary>
     public void CheckWinState()
     {
-        // Check if all slots are full
-        bool won = true;
-        foreach (GameObject slot in slots)
+        if (!playerHasWon)
         {
-            if (!slot.GetComponent<SlotScript>().IsSlotFull())
+            // Check if all slots are full
+            bool won = true;
+            foreach (GameObject slot in slots)
             {
-                won = false;
-                break;
+                if (!slot.GetComponent<SlotScript>().IsSlotFull())
+                {
+                    won = false;
+                    break;
+                }
             }
-        }
-        // Player has successfully completed the level
-        if (won)
-        {
-            // Deactivate player and start win animation
-            player.SetActive(false);
-            isWinAnimationRunning = true;
-            Invoke(nameof(StopWinAnimation), winAnimationRunTime);
+            playerHasWon = won;
+            // Player has successfully completed the level
+            if (playerHasWon)
+            {
+                // Deactivate player and start win animation
+                player.SetActive(false);
+                isWinAnimationRunning = true;
+                Invoke(nameof(StopWinAnimation), winAnimationRunTime);
+            }
         }
     }
 
     /// <summary>
-    /// Stops win animation running
+    /// Stops win animation running and half the overlay
     /// </summary>
     private void StopWinAnimation()
     {
-        isWinAnimationRunning = false;
+        if (isWinAnimationRunning)
+        {
+            isWinAnimationRunning = false;
+            // Make sure both worlds and overlay are active
+            yinWorldManager.SetActive(true);
+            yangWorldManager.SetActive(true);
+            invertColourOverlay.SetActive(true);
+            invertColourOverlay.GetComponent<InvertOverlaySizeScript>().HalfWidth();
+        }
     }
 
     /// <summary>
