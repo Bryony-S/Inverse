@@ -3,19 +3,22 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovementScript : MonoBehaviour
 {
-    // Properties
+    #region PROPERTIES
     [SerializeField] private float movementSpeed;
     [SerializeField] private LayerMask wallLayerMask;
     [SerializeField] private DirectionVariable playerDirection;
+    [SerializeField] private Animator playerAnimator;
 
     private Vector2 destination;
     private Vector2 currentDirection = Vector2.zero;
+    #endregion
 
     #region METHODS
     private void Start()
     {
         destination = transform.position;
         playerDirection.value = Direction.None;
+        
     }
 
     private void Update()
@@ -30,7 +33,11 @@ public class PlayerMovementScript : MonoBehaviour
         {
             // Change the direction the player is facing
             Direction newPlayerDirection = DirectionToVector2Converter.ConvertBack(currentDirection);
-            if (playerDirection.value != newPlayerDirection) playerDirection.value = newPlayerDirection;
+            if (playerDirection.value != newPlayerDirection)
+            {
+                playerDirection.value = newPlayerDirection;
+                playerAnimator.SetInteger("facing", (int)playerDirection.value);
+            }
             // Set new destination if current direction does not collide with a wall
             if (!Physics2D.Raycast(transform.position, currentDirection, 1f, wallLayerMask)) destination += currentDirection;
         }
