@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinLevelScript : MonoBehaviour
 {
     #region PROPERTIES
     [SerializeField] private GameObject[] slots;
     [SerializeField] private GameObject player;
+    [SerializeField] private float waitTimeBeforeNextLevel;
 
     [Header("Switch worlds")]
     [SerializeField] private GameObject yinWorldManager;
@@ -23,6 +25,7 @@ public class WinLevelScript : MonoBehaviour
     #endregion
 
     #region METHODS
+    #region Win animation
     private void Start()
     {
         timerRate = initialFlickerSpeed;
@@ -87,7 +90,18 @@ public class WinLevelScript : MonoBehaviour
             yangWorldManager.SetActive(true);
             invertColourOverlay.SetActive(true);
             invertColourOverlay.GetComponent<InvertOverlaySizeScript>().HalfWidth();
+            Invoke(nameof(GoToNextLevel), waitTimeBeforeNextLevel);
         }
+    }
+    #endregion
+
+    /// <summary>
+    /// Load the next level
+    /// </summary>
+    private void GoToNextLevel()
+    {
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (SceneUtility.GetScenePathByBuildIndex(nextSceneIndex).Length > 0) SceneManager.LoadScene(nextSceneIndex);
     }
 
     /// <summary>
