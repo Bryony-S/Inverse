@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TitleSceneButtonsScript : MonoBehaviour
+public class LoadSceneButtonScript : MonoBehaviour
 {
     /// <summary>
     /// Load scene by name
