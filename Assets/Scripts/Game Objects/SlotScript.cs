@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class SlotScript : MonoBehaviour
 {
+    // Properties
     [SerializeField] private GameObject levelManager;
+    [SerializeField] private AudioClip slotClickSFX;
 
     private bool isSlotFull = false;
 
@@ -14,6 +16,7 @@ public class SlotScript : MonoBehaviour
         {
             // Object is now locked into slot
             isSlotFull = true;
+            AudioManagerScript.Instance.PlaySound(slotClickSFX);
             collision.gameObject.GetComponent<PushObjectScript>().isSlotted = true;
             levelManager.GetComponent<WinLevelScript>().CheckWinState();
         }

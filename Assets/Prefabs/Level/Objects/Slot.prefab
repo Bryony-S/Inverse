@@ -143,3 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ccceab760979cc4faa7d2fc0fcc88f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelManager: {fileID: 0}
+  slotClickSFX: {fileID: 8300000, guid: 14f68247ec7536249a03f3e9e61a7345, type: 3}

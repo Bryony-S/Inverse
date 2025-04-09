@@ -256,6 +256,8 @@ MonoBehaviour:
     m_Bits: 64
   levelManager: {fileID: 0}
   mainCamera: {fileID: 0}
+  switchWorldsSuccessSFX: {fileID: 8300000, guid: e46cc371b87784c4892d0f46f5a1165a, type: 3}
+  switchWorldsFailSFX: {fileID: 8300000, guid: 5cbffdb6ebc5fbd448481f0c92670442, type: 3}
 --- !u!114 &8162716458498877846
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,10 +3,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerSwitchWorldScript : MonoBehaviour
 {
-    // Properties
+    #region PROPERTIES
     [SerializeField] private LayerMask wallLayerMask;
     [SerializeField] private GameObject levelManager;
     [SerializeField] private Camera mainCamera;
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip switchWorldsSuccessSFX;
+    [SerializeField] private AudioClip switchWorldsFailSFX;
+    #endregion
 
     /// <summary>
     /// Player switches between the yin and yang worlds
@@ -22,7 +27,9 @@ public class PlayerSwitchWorldScript : MonoBehaviour
             {
                 levelManager.GetComponent<WinLevelScript>().SwitchWorlds();
                 mainCamera.GetComponent<CameraShakeScript>().StartShake();
-            }
+                AudioManagerScript.Instance.PlaySound(switchWorldsFailSFX);
+            } // Switched worlds successfully
+            else { AudioManagerScript.Instance.PlaySound(switchWorldsSuccessSFX); }
         }
     }
 }

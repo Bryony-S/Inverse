@@ -7,6 +7,7 @@ public class WinLevelScript : MonoBehaviour
     [SerializeField] private GameObject[] slots;
     [SerializeField] private GameObject player;
     [SerializeField] private float waitTimeBeforeNextLevel;
+    [SerializeField] private AudioClip winJingle;
 
     [Header("Switch worlds")]
     [SerializeField] private GameObject yinWorldManager;
@@ -90,6 +91,7 @@ public class WinLevelScript : MonoBehaviour
             yangWorldManager.SetActive(true);
             invertColourOverlay.SetActive(true);
             invertColourOverlay.GetComponent<InvertOverlaySizeScript>().HalfWidth();
+            AudioManagerScript.Instance.PlaySound(winJingle);
             Invoke(nameof(GoToNextLevel), waitTimeBeforeNextLevel);
         }
     }

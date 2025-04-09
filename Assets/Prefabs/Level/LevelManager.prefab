@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slots: []
   player: {fileID: 0}
-  waitTimeBeforeNextLevel: 2
+  waitTimeBeforeNextLevel: 3
+  winJingle: {fileID: 8300000, guid: 3993c142a697f324dbdd48a194f5ea70, type: 3}
   yinWorldManager: {fileID: 0}
   yangWorldManager: {fileID: 0}
   invertColourOverlay: {fileID: 0}

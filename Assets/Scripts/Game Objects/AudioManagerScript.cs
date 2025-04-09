@@ -7,7 +7,7 @@ public class AudioManagerScript : MonoBehaviour
     public static AudioManagerScript Instance { get; private set; }
     [SerializeField] private AudioSource audioSource;
 
-    #region Methods
+    // Methods
     private void Awake()
     {
         // Set Instance to this if null, otherwise Instance already exists so destroy this
@@ -26,5 +26,4 @@ public class AudioManagerScript : MonoBehaviour
     {
         audioSource.PlayOneShot(sound);
     }
-    #endregion
 }
