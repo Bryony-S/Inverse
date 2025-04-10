@@ -7,6 +7,8 @@ public class InvertOverlaySizeScript : MonoBehaviour
     // Methods
     private void Start()
     {
+        // Centre overlay to same position as camera
+        transform.position = new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y, transform.position.z);
         // Set overlay size equal to camera view
         float cameraHeight = mainCamera.orthographicSize * 2;
         float cameraWidth = mainCamera.aspect * cameraHeight;
