@@ -8,6 +8,6 @@ public class ControllerDetectionTextScript : MonoBehaviour
 
     private void Update()
     {
-        controllerDetectionText.text = (isControllerDetected.value) ? "Controller detected!" : "Controller not detected - using Keyboard & Mouse controls";
+        controllerDetectionText.text = (isControllerDetected.value) ? "Controller detected!" : "Controller not detected - using Keyboard controls";
     }
 }
