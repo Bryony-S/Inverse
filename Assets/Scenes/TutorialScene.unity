@@ -2874,7 +2874,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isControllerDetected: {fileID: 11400000, guid: 5f4fcab7c37373242b8c641dd8ef926c, type: 2}
-  controlsText: {fileID: 1187298937}
+  displayText: {fileID: 1187298937}
+  controllerText: 'D-pad to move
+
+
+    A (bottom) button to push blocks
+
+
+    X (left)
+    button to switch worlds
+
+
+    RB (right shoulder) button to restart level'
+  keyboardText: 'WASD or Arrow keys to move
+
+
+    Spacebar to push blocks
+
+
+    Tab
+    to switch worlds
+
+
+    R to restart level'
 --- !u!114 &1187298940
 MonoBehaviour:
   m_ObjectHideFlags: 0
