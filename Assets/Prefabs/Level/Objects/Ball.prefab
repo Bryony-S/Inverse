@@ -56,8 +56,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1187868832212333987, guid: 1bc573828495e8e4cbe3e941012358aa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7212098956978948893, guid: 1bc573828495e8e4cbe3e941012358aa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6215906529511229971}
   m_SourcePrefab: {fileID: 100100000, guid: 1bc573828495e8e4cbe3e941012358aa, type: 3}
+--- !u!1 &570061845094347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7212098956978948893, guid: 1bc573828495e8e4cbe3e941012358aa, type: 3}
+  m_PrefabInstance: {fileID: 7211533754898371798}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6215906529511229971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570061845094347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42adb235ad7dc094fab5e4324f34296e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  movementSpeed: 6
+  pushableType: 1
+  isSlotted: 0

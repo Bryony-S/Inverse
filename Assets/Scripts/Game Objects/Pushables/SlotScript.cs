@@ -5,6 +5,7 @@ public class SlotScript : MonoBehaviour
     // Properties
     [SerializeField] private GameObject levelManager;
     [SerializeField] private AudioClip slotClickSFX;
+    [SerializeField] private PushableType slotType;
 
     private bool isSlotFull = false;
 
@@ -14,11 +15,15 @@ public class SlotScript : MonoBehaviour
         // Check collision is with pushable object
         if ((collision.gameObject.tag == "Pushable") && !isSlotFull)
         {
-            // Object is now locked into slot
-            isSlotFull = true;
-            AudioManagerScript.Instance.PlaySound(slotClickSFX);
-            collision.gameObject.GetComponent<PushObjectScript>().isSlotted = true;
-            levelManager.GetComponent<WinLevelScript>().CheckWinState();
+            PushObjectScript pushObjectScript = collision.gameObject.GetComponent<PushObjectScript>();
+            if ((pushObjectScript != null) && (pushObjectScript.GetPushableType() == slotType))
+            {
+                // Object is now locked into slot
+                isSlotFull = true;
+                AudioManagerScript.Instance.PlaySound(slotClickSFX);
+                pushObjectScript.isSlotted = true;
+                levelManager.GetComponent<WinLevelScript>().CheckWinState();
+            }
         }
     }
 

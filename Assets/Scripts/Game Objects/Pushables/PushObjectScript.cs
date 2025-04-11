@@ -3,20 +3,21 @@ using UnityEngine;
 public class PushObjectScript : MonoBehaviour
 {
     // Properties
-    [SerializeField] private LayerMask wallLayerMask;
-    [SerializeField] private float movementSpeed;
+    [SerializeField] protected LayerMask wallLayerMask;
+    [SerializeField] protected float movementSpeed;
+    [SerializeField] protected PushableType pushableType;
 
-    private Vector2 destination;
-    private bool isMoving = false;
+    protected Vector2 destination;
+    protected bool isMoving = false;
     [HideInInspector] public bool isSlotted = false;
 
     #region METHODS
-    private void Start()
+    protected void Start()
     {
         destination = transform.position;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         // Object is currently moving
         if (isMoving)
@@ -30,16 +31,24 @@ public class PushObjectScript : MonoBehaviour
     /// Object is pushed to a new space
     /// </summary>
     /// <param name="directionToPush">The direction of the push</param>
-    public void Push(Direction directionToPush)
+    public virtual void Push(Direction directionToPush)
     {
         // Check object is not already moving
         if (!isMoving && !isSlotted)
         {
             Vector2 newDirection = DirectionToVector2Converter.ConvertTo(directionToPush);
             // If new destination is not blocked by a wall, move towards new destination
-            if (!Physics2D.Raycast(transform.position, newDirection, 1f, wallLayerMask)) destination = (Vector2)transform.position + newDirection;
-            isMoving = true;
+            if (!Physics2D.Raycast(transform.position, newDirection, 1f, wallLayerMask))
+            {
+                destination = (Vector2)transform.position + newDirection;
+                isMoving = true;
+            }
         }
+    }
+
+    public PushableType GetPushableType()
+    {
+        return pushableType;
     }
     #endregion
 }

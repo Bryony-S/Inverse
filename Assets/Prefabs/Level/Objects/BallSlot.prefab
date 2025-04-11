@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1815049455936026863, guid: b38ea2856be70d74798cc7da7447a884, type: 3}
+      propertyPath: slotType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3447336852149960317, guid: b38ea2856be70d74798cc7da7447a884, type: 3}
       propertyPath: m_Sprite
       value: 
