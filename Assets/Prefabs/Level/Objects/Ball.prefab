@@ -85,6 +85,6 @@ MonoBehaviour:
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  movementSpeed: 6
+  movementSpeed: 7
   pushableType: 1
   isSlotted: 0
