@@ -1,5 +1,7 @@
-↹ Inverse is a sokoban-type puzzle game where the player must arrange the blocks into the correct positions in both the Yin and Yang worlds.
-It was made in Unity in 9 days for [Pizza Jam](https://itch.io/jam/pizza-jam-pizza-prize-14). It can be played online [here](https://bryony-s.itch.io/inverse).  
+## ↹ Inverse
+A sokoban-type puzzle game where the player must arrange the blocks into the correct positions in both the Yin and Yang worlds.
+It was made in Unity in 9 days for [Pizza Jam](https://itch.io/jam/pizza-jam-pizza-prize-14). You can play it online at [itch.io](https://bryony-s.itch.io/inverse). 
+![anim_ss1](https://github.com/user-attachments/assets/255812c1-07a1-4b9e-b43c-ecc7d4707fab)
 
 ## Assets used
 ### Audio
